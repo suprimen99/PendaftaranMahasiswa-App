@@ -1,0 +1,21 @@
+.main{
+
+height: 100vh;
+box-sizing: border-box;
+}
+
+.login-box{
+width: 500px;
+border: solid 1px;
+border-radius: 20px;
+padding: 20px
+}
+
+.main .login-box form div{
+padding: 5px;
+}
+
+.main .login-box form div h1{
+display: block;
+text-align: center;
+}
