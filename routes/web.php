@@ -30,7 +30,9 @@ Route::Post('login',[AuthController::class,'authenticate']);
 
 Route::middleware('auth')->group(function(){
     Route::get('logout',[AuthController::class, 'logout']);
-    Route::get('dashboard',[DashboardController::class,'index'])->middleware(['onlyadmin']);
+
+    Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware(['onlyadmin']);
+
 
     Route::get('datauser',[UserController::class,'datauser']);
     Route::post('tambahuser',[UserController::class,'store']);
@@ -42,9 +44,14 @@ Route::middleware('auth')->group(function(){
 
     Route::get('tambahsiswa',[SiswaController::class,'siswa']);
     Route::Post('tambah-siswa',[SiswaController::class,'store']);
+    Route::get('editsiswa/{id}',[SiswaController::class,'editsiswa'])->name('editsiswa');
+    Route::put('/editsiswa/{id}',[SiswaController::class, 'updatesiswa'])->name('/editsiswa');
+    Route::get('delete-siswa/{id}',[SiswaController::class,'delete']);
 
 
 
     Route::get('verifikasi',[VerfikasiController::class, 'index']);
+    Route::get('tambahverifikasi',[VerifikasiController::class,'']);
+
     Route::get('rektor',[RektorController::class,'index'])->middleware(['onlyrektor']);
 });

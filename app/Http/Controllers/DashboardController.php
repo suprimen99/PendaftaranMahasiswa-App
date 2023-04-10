@@ -15,6 +15,7 @@ class DashboardController extends Controller
         $siswa = Siswa::count();
 
         $data_siswa = Siswa::all();
+        $data_siswa = Siswa::paginate(5);
         return view('Admin.index',compact('user', 'siswa', 'data_siswa') );
     }
 

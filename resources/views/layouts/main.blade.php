@@ -25,7 +25,7 @@
             <div class="row g-0 h-100">
                 <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarTogglerDemo01" >
                     @if (Auth::user()->role_id == 1)
-                        <li><a href="dashboard" @if (request()->Route()->uri == 'dashboard')
+                        <li><a href="dashboard" @if (request()->Route()->uri == 'dashboard' || request()->Route()->uri == 'editsiswa')
                             class="active"
                              @endif>Dashboard</a></li>
 

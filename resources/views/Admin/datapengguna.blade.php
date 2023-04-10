@@ -22,6 +22,7 @@
                     <th>Telpon</th>
                     <th>Alamat</th>
                 </tr>
+            </thead>
                 <tbody>
                     @foreach ($data_user as $item)
                     <tr>
@@ -31,13 +32,13 @@
                         <td>{{ $item->address }}</td>
                         <td>
                             <a href="edituser/{{ $item->id }}" class="btn btn-primary">Edit</a>
-                            <a href="delete-user/{{$item->id}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+                            <a href="delete-user/{{$item->id}}" onclick="return confirm('Yakin Ingin Menghapus {{ $item->username }}?')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
-            </thead>
         </table>
+        {{ $data_user->links() }}
     <div>
 <div>
 

@@ -27,8 +27,16 @@
         </div>
     </div>
 
-</div class="mt-3">
+</div>
+<div class="mt-3">
     <h3>#Data Mahasiswa</h3>
+</div>
+
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+    @endif
     <table class="table">
         <thead>
             <tr>
@@ -37,9 +45,11 @@
                 <th>Umur</th>
                 <th>Nilai</th>
                 <th>Alamat</th>
+                <th>Jenis Kelamin</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
+        </thead>
             <tbody>
                 @foreach ($data_siswa as $item)
                 <tr>
@@ -48,16 +58,17 @@
                     <td>{{ $item->umur }}</td>
                     <td>{{ $item->Nilai }}</td>
                     <td>{{ $item->alamat }}</td>
+                    <td>{{ $item->jenis_kelamin }}</td>
                     <td>{{ $item->status }}</td>
                     <td>
-                        <a href="#" class="btn btn-success">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="editsiswa/{{ $item->id }}" class="btn btn-success">Edit</a>
+                        <a href="delete-siswa/{{ $item->id }}" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapus {{ $item->nama }}?')">Delete</a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
-        </thead>
     </table>
+    {{ $data_siswa->links() }}
 <div>
 
 </div>

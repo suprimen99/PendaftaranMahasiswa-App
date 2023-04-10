@@ -31,7 +31,7 @@ class UserController extends Controller
         $User->address = $request->input('address');
         $User->role_id = $request->input('role_id');
         $User->save();
-        return redirect('datauser')->with('success','User Baru Berhasil Ditambahakan!!');
+        return redirect('datauser')->with('success','User Baru Berhasil Ditambahkan!!');
         // $User = User::Create($request->all());
 
 
@@ -54,6 +54,7 @@ class UserController extends Controller
     public function datauser()
     {
         $data_user = User::all();
+        $data_user = User::paginate(5);;
         return view('Admin.datapengguna',compact('data_user'));
     }
 
