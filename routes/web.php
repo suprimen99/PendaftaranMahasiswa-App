@@ -45,6 +45,13 @@ Route::middleware('auth')->group(function(){
 
 
 
-    Route::get('verifikasi',[VerfikasiController::class, 'index']);
+    Route::get('verifikasi',[VerfikasiController::class, 'index'])->middleware(['onlyverifikasi']);
+    // Route::get('create_verifikasi', [VerfikasiController::class, 'createVerif'])->name('create-verifkasi');
+
+    // verifikasi siswa
+    Route::get('perif/{id}/siswa', [VerfikasiController::class, 'createVerif'])->name('create.verifkasi');
+    Route::post('simpan/{id}/perif', [VerfikasiController::class, 'simpanVerif'])->name('simpan.verifkasi');
+
+
     Route::get('rektor',[RektorController::class,'index'])->middleware(['onlyrektor']);
 });
