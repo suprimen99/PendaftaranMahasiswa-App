@@ -25,17 +25,22 @@
             <div class="row g-0 h-100">
                 <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarTogglerDemo01" >
                     @if (Auth::user()->role_id == 1)
-                        <li><a href="dashboard" @if (request()->Route()->uri == 'dashboard')
+                        <li><a href="dashboard" @if (request()->Route()->uri == 'dashboard' || request()->Route()->uri == 'Edit-siswa/{id}')
                             class="active"
                              @endif>Dashboard</a></li>
 
-                        <li><a href="datauser" @if (request()->Route()->uri == 'datauser' || request()->Route()->uri == 'User-add'||  request()->Route()->uri == 'edituser')
+                        <li><a href="datauser" @if (request()->Route()->uri == 'datauser' || request()->Route()->uri == 'User-add'|| request()->Route()->uri == 'edituser'|| request()->Route()->uri == 'tambahuser'|| request()->Route()->uri == 'edituser/{id}')
                             class="active"
                              @endif>Data Pengguna</a></li>
+
+                        <li><a href="datapendaftar" @if (request()->Route()->uri == 'datapendaftar')
+                            class="active"
+                             @endif>Tambah Pendaftar</a></li>
 
                         <li><a href="tambahsiswa"  @if (request()->Route()->uri == 'tambahsiswa')
                             class="active"
                              @endif>Tambah Siswa</a></li>
+
                         <li><a href="logout">Logout</a></li>
                     @endif
                     @if (Auth::user()->role_id == 2)

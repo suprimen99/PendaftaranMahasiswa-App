@@ -2,7 +2,11 @@
 @section('title', 'Admin')
 @section('content')
 <h1>welcome, {{ Auth::user()->username }}</h1>
-
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+    @endif
 <div class="row">
     <div class="col-lg-4 mt-3">
         <div class="card user">
@@ -50,8 +54,8 @@
                     <td>{{ $item->alamat }}</td>
                     <td>{{ $item->status }}</td>
                     <td>
-                        <a href="#" class="btn btn-success">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="Edit-siswa/{{ $item->id }}" class="btn btn-success">Edit</a>
+                        <a href="delete-siswa/{{ $item->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                     </td>
                 </tr>
                 @endforeach

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Edit User')
 @section('content')
-<h1>Tambah data Pengguna</h1>
+<h1>Edit data Pengguna</h1>
 
 <div class="mt-2 col-lg-6">
     <form action="/edituser/{{ $data->id }}" method="POST">
@@ -10,10 +10,6 @@
         <div class="mt-2">
             <label for="username" class="form-label" >Username</label>
             <input type="text" name="username" id="username" class="form-control" value="{{ $data->username }}" required>
-        </div>
-        <div>
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-control" value="{{ $data->password }}" required>
         </div>
         <div class="mt-3">
             <label for="role_id" class="form-label">Pilih Role</label>

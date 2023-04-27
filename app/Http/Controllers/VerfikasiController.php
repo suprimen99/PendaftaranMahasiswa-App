@@ -11,7 +11,7 @@ class VerfikasiController extends Controller
 {
     public function index()
     {
-        $data_siswa = Siswa::all();
+        $data_siswa = Pendaftar::all();
         return view('verifikator.index', compact('data_siswa'));
     }
 

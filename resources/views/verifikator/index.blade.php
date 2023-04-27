@@ -2,6 +2,11 @@
 @section('title', 'Verifikator')
 
 @section('content')
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+    @endif
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
